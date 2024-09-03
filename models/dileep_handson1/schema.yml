@@ -1,0 +1,14 @@
+
+version: 2
+
+
+sources:
+  - name: DBT_HANDSON_1_SOURCES
+    description: 'configuring the sources of 4 tables'
+    database: ELOOK_COMMERCE
+    schema: raw
+    tables:
+      - name: ORDERS
+      - name: ORDER_ITEMS
+      - name: PRODUCTS
+      - name: USERS
