@@ -1,8 +1,8 @@
 WITH top_5_users AS (
     SELECT oi.USER_ID, oi.Sale_Price, u.ID, u.FIRST_NAME, u.LAST_NAME, oi.STATUS FROM
-        {{ ref('stg_orderitems') }} oi
+        {{ ref('int_orderitems') }} oi
     JOIN
-        {{ ref('stg_users') }} u
+        {{ ref('int_users') }} u
     ON
         oi.USER_ID = u.ID
     WHERE
@@ -39,6 +39,6 @@ WHERE
 SELECT  u.FIRST_NAME, u.LAST_NAME,  tu.Total_Revenue FROM
         top_users tu
     JOIN
-        {{ ref('stg_users') }} u
+        {{ ref('int_users') }} u
     ON
         tu.ID = u.ID

@@ -8,6 +8,50 @@ sources:
     schema: raw
     tables:
       - name: ORDERS
+        columns:
+          - name: order_id
+            tests:
+              - unique
+              - not_null
+          - name: user_id
+            tests:
+              - relationships:
+                  field: id
+                  to: ref('users')
+                   
       - name: ORDER_ITEMS
+        columns:
+          - name: product_id
+            tests:
+              - relationships:
+                  field: id
+                  to: ref('products')
       - name: PRODUCTS
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null           
       - name: USERS
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
+
+models:
+  - name: int_orders
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+
+  - name: int_orders_clean
+    columns:
+      - name: order_id
+        tests:
+          - relationships:
+              field: order_id
+              to: ref('stg_orders')
+              
