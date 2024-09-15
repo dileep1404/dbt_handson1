@@ -1,6 +1,6 @@
 WITH top_5_users AS (
     SELECT oi.USER_ID, oi.Sale_Price, u.ID, u.FIRST_NAME, u.LAST_NAME, oi.STATUS FROM
-        {{ ref('int_orderitems') }} oi
+        {{ ref('cleaned_order_items') }} oi
     JOIN
         {{ ref('int_users') }} u
     ON

@@ -54,4 +54,9 @@ models:
           - relationships:
               field: order_id
               to: ref('stg_orders')
+
+  - name: int_orders_clean
+    tests:
+      - cleaned_orders_num_of_items
+    
               

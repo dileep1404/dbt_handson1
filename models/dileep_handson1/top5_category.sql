@@ -4,7 +4,7 @@ WITH top5_category AS (
         oi.Sale_Price,
         p.Category
     FROM
-        {{ ref('int_orderitems') }} oi
+        {{ ref('cleaned_order_items') }} oi
     JOIN
         {{ ref('int_products') }} p
     ON
