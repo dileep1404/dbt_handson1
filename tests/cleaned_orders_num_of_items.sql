@@ -6,5 +6,5 @@ with source_data as (
 
 )
 
-select * from source_data
+Select count(*) as cnt_value from source_data having cnt_value<1
 
